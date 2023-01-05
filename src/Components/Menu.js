@@ -24,7 +24,7 @@ const Menu = ({ page, authedUser, dispatch }) => {
               )}
             </div>
             <div className="col" style={{ marginLeft: "25px" }}>
-              {page !== "newpoll" ? <Link to="/newPoll">New</Link> : "New"}
+              {page !== "newpoll" ? <Link to="/add">New</Link> : "New"}
             </div>
           </div>
         </div>
@@ -39,6 +39,7 @@ const Menu = ({ page, authedUser, dispatch }) => {
                   width: "20px",
                   height: "20px",
                 }}
+                alt="User Avatar"
               />
               {authedUser.name}
             </div>

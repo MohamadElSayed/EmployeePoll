@@ -1,10 +1,33 @@
-import Menu from "../Menu";
+import Menu from "../../Menu";
+import { connect } from "react-redux";
+import { useRef } from "react";
+import { handleSaveQuestion } from "../../../actions/questions";
+import { useNavigate } from "react-router-dom";
 
-const NewQuestion = () => {
+const AddQuestion = ({ authedUser, dispatch }) => {
+  const optionOneRef = useRef("");
+  const optionTwoRef = useRef("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(
+      handleSaveQuestion({
+        author: authedUser.id,
+        optionOneText: optionOneRef.current.value,
+        optionTwoText: optionTwoRef.current.value,
+      })
+    );
+    navigate("/", { replace: true });
+  };
+
   return (
     <div className="container">
       <Menu page={"newpoll"} />
-      <form className="justify-content-center">
+      <form
+        className="justify-content-center"
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <div className="row">
           <h3
             className="col"
@@ -43,6 +66,7 @@ const NewQuestion = () => {
                 marginRight: "auto",
                 marginLeft: "auto",
               }}
+              ref={optionOneRef}
             />
           </div>
         </div>
@@ -68,6 +92,7 @@ const NewQuestion = () => {
                 marginRight: "auto",
                 marginLeft: "auto",
               }}
+              ref={optionTwoRef}
             />
           </div>
         </div>
@@ -96,4 +121,6 @@ const NewQuestion = () => {
   );
 };
 
-export default NewQuestion;
+export default connect((state) => ({
+  authedUser: state.authedUser,
+}))(AddQuestion);

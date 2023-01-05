@@ -1,4 +1,5 @@
 import * as api from "../utils/_DATA";
+import { handleInitialData } from "./shared";
 
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
 export const AUTHED_USER_LOGOUT = "AUTHED_USER_LOGOUT";
@@ -22,7 +23,7 @@ export const handleSetAuthedUser = (username, password) => {
     return api
       ._getUser(username, password)
       .then((authedUser) => {
-        dispatch(setAuthedUser(authedUser));
+        dispatch(handleInitialData(authedUser));
       })
       .catch((errorMessage) => {
         dispatch(setAuthedUser({ errorMessage }));

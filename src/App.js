@@ -1,12 +1,12 @@
 import Login from "./Components/Login";
-import Signup from "./Components/Signup";
-import Dashboard from "./Components/Dashboard";
-import AnswerQuestion from "./Components/Questions/AnswerQuestion";
-import LeaderBoard from "./Components/Leaderboard";
-import NewQuestion from "./Components/Questions/newQuestion";
-import ShowQuestionResult from "./Components/Questions/ShowQuestionResult";
+// import Signup from "./Components/Signup";
+import Dashboard from "./Components/Dashboard/Dashboard";
+// import AnswerQuestion from "./Components/Questions/AnswerQuestion";
+import LeaderBoard from "./Components/Leaderboard/Leaderboard";
+import AddQuestion from "./Components/Question/AddQuestion/AddQuestion";
 import { Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
+import Question from "./Components/Question/Question";
 
 function App(props) {
   const authedUser =
@@ -19,10 +19,9 @@ function App(props) {
     <Routes>
       <Route exact path="/" element={<Dashboard />}></Route>
       <Route path="/login" element={<Dashboard />}></Route>
-      <Route path="/questions" element={<AnswerQuestion />}></Route>
       <Route path="/leaderboard" element={<LeaderBoard />}></Route>
-      <Route path="/newpoll" element={<NewQuestion />}></Route>
-      <Route path="/showpollresult" element={<ShowQuestionResult />}></Route>
+      <Route path="/add" element={<AddQuestion />}></Route>
+      <Route path="/questions/:qid" element={<Question />}></Route>
     </Routes>
   ) : (
     <Routes>

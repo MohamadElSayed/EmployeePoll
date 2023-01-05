@@ -1,17 +1,14 @@
 import { useRef } from "react";
-// import { useEffect } from "react";
 import { handleSetAuthedUser } from "../actions/authedUser";
 import { connect } from "react-redux";
 
-const Login = (props) => {
+const Login = ({ dispatch, authedUser }) => {
   const usernameRef = useRef();
   const passwordRef = useRef();
 
-  // useEffect(() => {}, []);
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.dispatch(
+    dispatch(
       handleSetAuthedUser(usernameRef.current.value, passwordRef.current.value)
     );
   };
@@ -31,6 +28,7 @@ const Login = (props) => {
           <img
             src={require("../Images/login.gif")}
             style={{ width: "200px", height: "200px" }}
+            alt="login"
           />
         </div>
 
@@ -44,8 +42,8 @@ const Login = (props) => {
               marginLeft: "auto",
             }}
           >
-            {props.authedUser && props.authedUser.errorMessage
-              ? props.authedUser.errorMessage
+            {authedUser && authedUser.errorMessage
+              ? authedUser.errorMessage
               : ""}
           </p>
         </div>

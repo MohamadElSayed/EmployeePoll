@@ -1,14 +1,20 @@
-// import { getInitialData} from '../utils/api';
-// import { receivePolls } from './polls';
-// import { receiveUsers } from './users';
+import * as api from "../utils/_DATA";
 
-// export function handleInitialData () {
-//     return (dispatch) => {
-//            return getInitialData()
-//                   .then(({users,polls}) => {
-//                     dispatch(receivePolls(polls));
-//                     dispatch(receiveUsers(users));
-//                     dispatch(setAuthUser(AUTHED_ID));
-//     })
-//     }
-// }
+export const INITIAL_DATA = "INITIAL_DATA";
+
+export const initialData = (authuser, questions, users) => {
+  return {
+    type: INITIAL_DATA,
+    authuser,
+    questions,
+    users,
+  };
+};
+
+export const handleInitialData = (authuser) => {
+  return (dispatch) => {
+    return api._getInitialData().then(({ questions, users }) => {
+      dispatch(initialData(authuser, questions, users));
+    });
+  };
+};

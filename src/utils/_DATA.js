@@ -27,7 +27,7 @@ let users = {
     id: "mtsamis",
     password: "xyz123",
     name: "Mike Tsamis",
-    avatarIndex: null,
+    avatarIndex: 3,
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -144,7 +144,6 @@ export function _getUsers() {
 export function _getUser(id, password) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      debugger;
       users[id] && users[id].password === password
         ? resolve(users[id])
         : reject("Invalid username/password");
@@ -155,6 +154,15 @@ export function _getUser(id, password) {
 export function _getQuestions() {
   return new Promise((resolve) => {
     setTimeout(() => resolve({ ...questions }), 1000);
+  });
+}
+
+export function _getInitialData() {
+  return new Promise((resolve) => {
+    setTimeout(
+      () => resolve({ questions: { ...questions }, users: { ...users } }),
+      1000
+    );
   });
 }
 
