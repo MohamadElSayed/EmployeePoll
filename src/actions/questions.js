@@ -21,7 +21,6 @@ const getQuestions = (questions) => {
 export const handleGetQuestions = () => {
   return (dispatch) => {
     return api._getQuestions().then((questions) => {
-      debugger;
       dispatch(getQuestions(questions));
     });
   };

@@ -1,7 +1,5 @@
 import Login from "./Components/Login";
-// import Signup from "./Components/Signup";
 import Dashboard from "./Components/Dashboard/Dashboard";
-// import AnswerQuestion from "./Components/Questions/AnswerQuestion";
 import LeaderBoard from "./Components/Leaderboard/Leaderboard";
 import AddQuestion from "./Components/Question/AddQuestion/AddQuestion";
 import { Route, Routes } from "react-router-dom";
