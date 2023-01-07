@@ -98,8 +98,8 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 
 5. `_getUser(id,password)` Method
 
-*id: Username for the user
-*password: Password for the user
+_Description_: Validates Username and password wheich is used at the login process.
+_Parameters_: id is the username and password is the password for the user
 
 _return Value_: if id and password are valid then the user object will be returned otherwise an error message with Invalid UserName/password will be returned instead.
 
