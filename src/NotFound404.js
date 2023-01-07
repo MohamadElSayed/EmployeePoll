@@ -1,4 +1,4 @@
-import Menu from "./Menu";
+import Menu from "./Components/Menu";
 
 const NotFound404 = ({ errorMessage }) => {
   return (

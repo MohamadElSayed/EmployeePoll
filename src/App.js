@@ -5,7 +5,7 @@ import AddQuestion from "./Components/Question/AddQuestion/AddQuestion";
 import { Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
 import Question from "./Components/Question/Question";
-import NotFound404 from "./Components/NotFound404";
+import NotFound404 from "./NotFound404";
 
 function App(props) {
   const authedUser =
