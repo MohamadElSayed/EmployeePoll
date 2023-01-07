@@ -12,7 +12,6 @@ const getUsers = (users) => {
 export const handleGetUsers = () => {
   return (dispatch) => {
     return api._getUsers().then((users) => {
-      debugger;
       dispatch(getUsers(users));
     });
   };
