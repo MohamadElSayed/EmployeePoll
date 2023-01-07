@@ -49,24 +49,6 @@ Object {
             <div
               class="col"
             />
-            <div
-              class="col-md-auto text-end"
-            >
-              <img
-                alt=""
-                src=""
-                style="width: 20px; height: 20px;"
-              />
-            </div>
-            <div
-              class="col col-lg-2 text-end"
-            >
-              <a
-                href="/"
-              >
-                Logout
-              </a>
-            </div>
           </div>
           <hr />
         </div>
@@ -113,8 +95,10 @@ Object {
               <input
                 class="form-control"
                 name="FirstOption"
+                placeholder="Option 1 Text"
                 style="width: 70%; display: block; margin-right: auto; margin-left: auto;"
                 type="text"
+                value=""
               />
             </div>
           </div>
@@ -138,8 +122,10 @@ Object {
               <input
                 class="form-control"
                 name="SecondOption"
+                placeholder="Option 2 Text"
                 style="width: 70%; display: block; margin-right: auto; margin-left: auto;"
                 type="text"
+                value=""
               />
             </div>
           </div>
@@ -154,6 +140,7 @@ Object {
             >
               <button
                 class="btn btn-primary "
+                disabled=""
                 name="submitNewPoll"
                 style="width: 20%; display: block; margin-right: auto; margin-left: auto;"
                 type="submit"
@@ -212,24 +199,6 @@ Object {
           <div
             class="col"
           />
-          <div
-            class="col-md-auto text-end"
-          >
-            <img
-              alt=""
-              src=""
-              style="width: 20px; height: 20px;"
-            />
-          </div>
-          <div
-            class="col col-lg-2 text-end"
-          >
-            <a
-              href="/"
-            >
-              Logout
-            </a>
-          </div>
         </div>
         <hr />
       </div>
@@ -276,8 +245,10 @@ Object {
             <input
               class="form-control"
               name="FirstOption"
+              placeholder="Option 1 Text"
               style="width: 70%; display: block; margin-right: auto; margin-left: auto;"
               type="text"
+              value=""
             />
           </div>
         </div>
@@ -301,8 +272,10 @@ Object {
             <input
               class="form-control"
               name="SecondOption"
+              placeholder="Option 2 Text"
               style="width: 70%; display: block; margin-right: auto; margin-left: auto;"
               type="text"
+              value=""
             />
           </div>
         </div>
@@ -317,6 +290,7 @@ Object {
           >
             <button
               class="btn btn-primary "
+              disabled=""
               name="submitNewPoll"
               style="width: 20%; display: block; margin-right: auto; margin-left: auto;"
               type="submit"

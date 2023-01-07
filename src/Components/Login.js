@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { handleSetAuthedUser } from "../actions/authedUser";
 import { connect } from "react-redux";
+import Menu from "./Menu";
 
 const Login = ({ dispatch, authedUser }) => {
   const usernameRef = useRef();
@@ -14,6 +15,7 @@ const Login = ({ dispatch, authedUser }) => {
   };
   return (
     <div className="container">
+      <Menu />
       <form className="justify-content-center" onSubmit={handleSubmit}>
         <div className="row">
           <h3

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import AnsweredQuestion from "./AnsweredQuestion/AnsweredQuestion";
 import UnAnsweredQuestion from "./UnAnsweredQuestion/UnAnsweredQuestion";
-import NotFound404 from "./NotFound404";
+import NotFound404 from "../NotFound404";
 
 const Question = ({ questions, authedUser, users }) => {
   const params = useParams();
@@ -18,7 +18,7 @@ const Question = ({ questions, authedUser, users }) => {
       <UnAnsweredQuestion qid={params.qid} />
     )
   ) : (
-    <NotFound404 />
+    <NotFound404 errorMessage={"Question Not Found"} />
   );
 };
 

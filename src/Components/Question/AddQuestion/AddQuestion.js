@@ -1,12 +1,13 @@
 import Menu from "../../Menu";
 import { connect } from "react-redux";
-import { useRef } from "react";
+import { useState } from "react";
 import { handleSaveQuestion } from "../../../actions/questions";
 import { useNavigate } from "react-router-dom";
 
 const AddQuestion = ({ authedUser, dispatch }) => {
-  const optionOneRef = useRef("");
-  const optionTwoRef = useRef("");
+  const [optionOneText, setOptionOneText] = useState("");
+  const [optionTwoText, setOptionTwoText] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -14,8 +15,8 @@ const AddQuestion = ({ authedUser, dispatch }) => {
     dispatch(
       handleSaveQuestion({
         author: authedUser.id,
-        optionOneText: optionOneRef.current.value,
-        optionTwoText: optionTwoRef.current.value,
+        optionOneText: optionOneText,
+        optionTwoText: optionTwoText,
       })
     );
     navigate("/", { replace: true });
@@ -66,7 +67,9 @@ const AddQuestion = ({ authedUser, dispatch }) => {
                 marginRight: "auto",
                 marginLeft: "auto",
               }}
-              ref={optionOneRef}
+              value={optionOneText}
+              placeholder="Option 1 Text"
+              onChange={(e) => setOptionOneText(e.target.value)}
             />
           </div>
         </div>
@@ -92,7 +95,9 @@ const AddQuestion = ({ authedUser, dispatch }) => {
                 marginRight: "auto",
                 marginLeft: "auto",
               }}
-              ref={optionTwoRef}
+              value={optionTwoText}
+              onChange={(e) => setOptionTwoText(e.target.value)}
+              placeholder="Option 2 Text"
             />
           </div>
         </div>
@@ -111,6 +116,9 @@ const AddQuestion = ({ authedUser, dispatch }) => {
                 marginRight: "auto",
                 marginLeft: "auto",
               }}
+              disabled={
+                optionOneText.trim() === "" || optionTwoText.trim() === ""
+              }
             >
               Submit{" "}
             </button>

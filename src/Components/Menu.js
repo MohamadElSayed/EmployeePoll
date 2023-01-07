@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { authedUserLogout } from "../actions/authedUser";
 import { getAvatarImage } from "../utils/_Avatar";
+import { useState } from "react";
 
 const Menu = ({ authedUser, dispatch }) => {
+  const [location, setlocation] = useState(window.location.pathname);
+
   const handleLogout = () => {
     dispatch(authedUserLogout());
   };
@@ -14,44 +17,59 @@ const Menu = ({ authedUser, dispatch }) => {
         <div className="col">
           <div className="row">
             <div className="col">
-              {window.location.pathname !== "/" ? (
-                <Link to="/">Home</Link>
-              ) : (
+              {location === "/" ? (
                 "Home"
+              ) : (
+                <Link to="/" onClick={() => setlocation("/")}>
+                  Home
+                </Link>
               )}
             </div>
             <div className="col">
-              {window.location.pathname !== "/leaderboard" ? (
-                <Link to="/leaderboard">Leaderboard</Link>
-              ) : (
+              {location === "/leaderboard" ? (
                 "Leaderboard"
+              ) : (
+                <Link
+                  to="/leaderboard"
+                  onClick={() => setlocation("/leaderboard")}
+                >
+                  Leaderboard
+                </Link>
               )}
             </div>
             <div className="col">
-              {window.location.pathname !== "/add" ? (
-                <Link to="/add">New</Link>
-              ) : (
+              {location === "/add" ? (
                 "New"
+              ) : (
+                <Link to="/add" onClick={() => setlocation("/add")}>
+                  New
+                </Link>
               )}
             </div>
           </div>
         </div>
         <div className="col" />
-        <div className="col-md-auto text-end">
-          <img
-            src={authedUser ? getAvatarImage(authedUser.avatarIndex) : ""}
-            style={{
-              width: "20px",
-              height: "20px",
-            }}
-            alt=""
-          />
-          {authedUser ? authedUser.name : ""}
-        </div>
+        {authedUser ? (
+          <>
+            <div className="col-md-auto text-end">
+              <img
+                src={getAvatarImage(authedUser.avatarIndex)}
+                style={{
+                  width: "20px",
+                  height: "20px",
+                }}
+                alt=""
+              />
+              {authedUser.name}
+            </div>
 
-        <div className="col col-lg-2 text-end">
-          <Link onClick={handleLogout}>Logout</Link>
-        </div>
+            <div className="col col-lg-2 text-end">
+              <Link onClick={handleLogout}>Logout</Link>
+            </div>
+          </>
+        ) : (
+          ""
+        )}
       </div>
       <hr />
     </div>

@@ -5,6 +5,7 @@ import AddQuestion from "./Components/Question/AddQuestion/AddQuestion";
 import { Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
 import Question from "./Components/Question/Question";
+import NotFound404 from "./Components/NotFound404";
 
 function App(props) {
   const authedUser =
@@ -20,6 +21,10 @@ function App(props) {
       <Route path="/leaderboard" element={<LeaderBoard />}></Route>
       <Route path="/add" element={<AddQuestion />}></Route>
       <Route path="/questions/:qid" element={<Question />}></Route>
+      <Route
+        path="*"
+        element={<NotFound404 errorMessage={"Page Not Found"} />}
+      />
     </Routes>
   ) : (
     <Routes>

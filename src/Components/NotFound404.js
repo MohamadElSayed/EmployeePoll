@@ -1,11 +1,11 @@
-import Menu from "../Menu";
+import Menu from "./Menu";
 
-const NotFound404 = () => {
+const NotFound404 = ({ errorMessage }) => {
   return (
     <div className="container text-center">
       <Menu />
       <div>
-        <strong>404 Question Not Found</strong>
+        <strong>{errorMessage}</strong>
       </div>
     </div>
   );
