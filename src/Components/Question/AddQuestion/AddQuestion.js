@@ -22,8 +22,8 @@ const AddQuestion = ({ authedUser, dispatch }) => {
   };
 
   return (
-    <div className="container">
-      <Menu page={"newpoll"} />
+    <div className="container text-center">
+      <Menu />
       <form
         className="justify-content-center"
         onSubmit={(e) => handleSubmit(e)}

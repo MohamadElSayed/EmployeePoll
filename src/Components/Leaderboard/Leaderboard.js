@@ -30,8 +30,8 @@ const LeaderBoard = ({ users }) => {
     });
   };
   return (
-    <div className="container">
-      <Menu page={"leaderboard"} />
+    <div className="container text-center">
+      <Menu />
       <div className="row justify-content-center">
         <table className="table table-bordered" style={{ width: "80%" }}>
           <thead>

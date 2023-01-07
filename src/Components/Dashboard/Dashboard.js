@@ -4,8 +4,8 @@ import QuestionCard from "./QuestionCard";
 
 const Dashboard = ({ questions, authedUser }) => {
   return (
-    <div className="container">
-      <Menu page={"home"} />
+    <div className="container text-center">
+      <Menu />
       <div className="col d-flex justify-content-center">
         <div className="card" style={{ width: "90%" }}>
           <h5 className="card-header" style={{ textAlign: "center" }}>

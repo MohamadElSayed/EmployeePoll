@@ -1,12 +1,12 @@
 import * as api from "../utils/_DATA";
 import { handleGetUsers } from "./users";
 
-export const SAVE_QUESTION = "SAVE_QUESTION";
+export const GET_QUESTION = "GET_QUESTION";
 export const GET_QUESTIONS = "GET_QUESTIONS";
 
-const saveQuestion = (question) => {
+const getQuestion = (question) => {
   return {
-    type: SAVE_QUESTION,
+    type: GET_QUESTION,
     question,
   };
 };
@@ -51,7 +51,8 @@ export const handleSaveQuestion = (question) => {
     return api
       ._saveQuestion(question)
       .then((question) => {
-        dispatch(saveQuestion(question));
+        dispatch(getQuestion(question));
+        dispatch(handleGetUsers());
       })
       .catch((errorMessage) => {
         alert(errorMessage);

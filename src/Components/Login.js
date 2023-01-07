@@ -12,7 +12,6 @@ const Login = ({ dispatch, authedUser }) => {
       handleSetAuthedUser(usernameRef.current.value, passwordRef.current.value)
     );
   };
-
   return (
     <div className="container">
       <form className="justify-content-center" onSubmit={handleSubmit}>
@@ -33,19 +32,22 @@ const Login = ({ dispatch, authedUser }) => {
         </div>
 
         <div className="Row">
-          <p
-            className="text-danger"
-            style={{
-              width: "70%",
-              display: "block",
-              marginRight: "auto",
-              marginLeft: "auto",
-            }}
-          >
-            {authedUser && authedUser.errorMessage
-              ? authedUser.errorMessage
-              : ""}
-          </p>
+          {authedUser && authedUser.errorMessage ? (
+            <p
+              data-testid="errorMessage"
+              className="text-danger"
+              style={{
+                width: "70%",
+                display: "block",
+                marginRight: "auto",
+                marginLeft: "auto",
+              }}
+            >
+              {authedUser.errorMessage}
+            </p>
+          ) : (
+            ""
+          )}
         </div>
         <div className="row">
           <div
@@ -60,7 +62,8 @@ const Login = ({ dispatch, authedUser }) => {
           <div className="col" style={{ paddingTop: "10px" }}>
             <input
               type="text"
-              name="User"
+              name="username"
+              data-testid="username"
               className="form-control"
               style={{
                 width: "70%",
@@ -86,7 +89,8 @@ const Login = ({ dispatch, authedUser }) => {
           <div className="col" style={{ paddingTop: "10px" }}>
             <input
               type="password"
-              name="Password"
+              name="password"
+              data-testid="password"
               className="form-control"
               style={{
                 width: "70%",
@@ -107,6 +111,7 @@ const Login = ({ dispatch, authedUser }) => {
               type="submit"
               name="submitLogin"
               className="btn btn-primary "
+              data-testid="submit-button"
               style={{
                 width: "20%",
                 display: "block",

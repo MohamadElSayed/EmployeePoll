@@ -39,14 +39,6 @@ const UnAnsweredQuestion = ({
       <div className="row">
         <h3 className="col" style={{ textAlign: "center", paddingTop: "50px" }}>
           Would You Rather{" "}
-          {disabled ? (
-            <div>
-              <br />
-              <h4>Please wait, calculating results ...</h4>
-            </div>
-          ) : (
-            ""
-          )}
         </h3>
       </div>
 
@@ -66,6 +58,16 @@ const UnAnsweredQuestion = ({
           disabled={disabled}
         />
       </div>
+      {disabled ? (
+        <div>
+          <br />
+          <div className="card-subtitle">
+            Please wait, calculating results ...
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

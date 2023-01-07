@@ -5,6 +5,8 @@ import avatar4 from "../Images/Avatar-4.gif";
 import noAvatar from "../Images/no-avatar.gif";
 
 export const getAvatarImage = (index) => {
+  if (!index) return noAvatar;
+
   switch (index) {
     case 1:
       return avatar1;

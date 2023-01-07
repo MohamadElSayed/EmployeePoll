@@ -5,17 +5,17 @@ const DisplayUser = ({ user }) => {
     <tr>
       <td>
         <div className="row">
-          <div className="col" style={{ maxWidth: "30px" }}>
+          <div className="col" style={{ maxWidth: "60px" }}>
             <img
               src={getAvatarImage(user.avatarIndex)}
               style={{
-                width: "20px",
-                height: "20px",
+                width: "40px",
+                height: "40px",
               }}
               alt=""
             />
           </div>
-          <div className="col">
+          <div className="col" style={{ textAlign: "left" }}>
             <h6>{user.name}</h6>
             <div>{user.id}</div>
           </div>
